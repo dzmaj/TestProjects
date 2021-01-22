@@ -1,6 +1,11 @@
 package net.dmaj.test.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import org.springframework.data.rest.core.annotation.RestResource;
 
 @Entity
 public class User extends BaseEntity {
@@ -15,6 +20,10 @@ public class User extends BaseEntity {
 	private String email;
 	
 	private String password;
+	
+	@OneToMany(mappedBy="user")
+	@RestResource(path = "tasks", rel="tasks")
+	private List<Task> tasks;
 
 	public String getUsername() {
 		return username;

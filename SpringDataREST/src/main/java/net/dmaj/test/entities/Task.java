@@ -1,8 +1,10 @@
 package net.dmaj.test.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Task extends BaseEntity {
 	
 	private String name;
