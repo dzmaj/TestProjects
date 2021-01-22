@@ -25,6 +25,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` VARCHAR(45) NULL,
   `email` VARCHAR(500) NULL,
   `password` VARCHAR(5000) NULL,
+  `creation_timestamp` DATETIME NULL,
+  `update_timestamp` DATETIME NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -67,7 +69,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `testdb`;
-INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES (1, 'admin', 'admin@email.com', 'password');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `creation_timestamp`, `update_timestamp`) VALUES (1, 'admin', 'admin@email.com', 'password', NULL, NULL);
 
 COMMIT;
 
